@@ -1,0 +1,26 @@
+<div class="card" [ngClass]="{ 'bg-danger-light': product.stock < 5 }">
+    <img class="card-img-top" src="{{ product.img }}" alt="{{ product.name }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name | uppercase }}</h5>
+      {{ product.name }}
+  
+      <p class="card-text" [ngClass]="{ 'text-danger': product.stock < 5 }">
+        <span *ngIf="product.stock >= 5; else lowStock"> En stock </span>
+        <ng-template #lowStock>
+          <span>Stock faible</span>
+        </ng-template>
+        ({{ product.stock }})
+      </p>
+  
+      <p class="card-text">{{ product.price }}€</p>
+      <a [routerLink]="['/products', id]" class="btn btn-secondary d-block mt-4"
+        >Modifier</a
+      >
+      <button
+        class="btn btn-danger d-block mt-2 w-100"
+        (click)="delete(id)"
+      >
+        Supprimer
+      </button>
+    </div>
+  </div>

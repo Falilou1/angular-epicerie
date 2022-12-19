@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="text-center">Modifier un produit</h1>
+    <p class="text-success text-center">{{ success }}</p>
+    <div class="row justify-center">
+      <app-modification-produit-form
+        class="col-lg-4"
+        [id]="id"
+        [product]="product"
+        (successCreate)="onSuccess($event)"
+      ></app-modification-produit-form>
+    </div>
+  </div>

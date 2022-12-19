@@ -1,0 +1,13 @@
+<p [ngStyle]="{color: colorTs}">directives works!</p>
+<p [ngStyle]="{color: valid ? 'green' : 'red'}">directives  TERNERS boolean!</p>
+<p [ngClass]="{'text-success': valid == true}">Class boolean!</p>
+
+<!--si valid est égale à true il affiche le paragraphe sinon affiche le paragraphe avec l'id nonvalid--->
+<p *ngIf="valid == true; else nonvalid">Validé</p>
+<ng-template #nonvalid>
+<h1>Non validé</h1>
+</ng-template>
+<!--Boucle for et affichage de animal-->
+<p *ngFor="let animal of animaux; let i = index">{{ animal }} {{ i+1 }}</p>
+<p *ngFor="let animal of animauxObjet">{{ animal.name }} ({{ animal.quantity }})</p>
+
